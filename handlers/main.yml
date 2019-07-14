@@ -1,0 +1,7 @@
+---
+# handlers file for {{ app }}
+
+- name: "{{ app }}_unarchive"
+  unarchive:
+    src: "{{ dl_loc }}/{{ app }}_{{ version }}_{{ osarch }}.zip"
+    dest: "{{ bin_path }}"

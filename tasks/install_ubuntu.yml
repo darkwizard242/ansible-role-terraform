@@ -1,0 +1,9 @@
+---
+# tasks file for terraform
+
+- name: Downloading archive for {{ app }} {{ version }} temporarily to {{ dl_loc }}
+  get_url: 
+    url: "{{ dl_url }}/{{ app }}/{{ version }}/{{ app }}_{{ version }}_{{ osarch }}.zip"
+    dest: "{{ dl_loc }}"
+  notify: 
+    - terraform_unarchive
