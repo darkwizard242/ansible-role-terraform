@@ -6,4 +6,5 @@
     url: "{{ dl_url }}/{{ app }}/{{ version }}/{{ app }}_{{ version }}_{{ osarch }}.zip"
     dest: "{{ dl_loc }}"
   notify:
-    - terraform_unarchive
+    - "{{ app }}_unarchive"
+    - "{{ app }}_archive_removal"
