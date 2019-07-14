@@ -7,4 +7,3 @@ osarch: linux_amd64
 dl_url: https://releases.hashicorp.com
 dl_loc: /tmp
 bin_path: /usr/local/bin
-
