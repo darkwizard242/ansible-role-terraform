@@ -3,4 +3,4 @@
 
 - name: Import ubuntu.yml if OS family is Ubuntu
   import_tasks: install_ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_os_family == "Debian"
