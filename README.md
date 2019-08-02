@@ -14,25 +14,25 @@ Role Variables
 Available variables are listed below (located in  `defaults/main.yml`):
 
 ```yaml
-app: terraform
-version: 0.12.4
-osarch: linux_amd64
-dl_url: https://releases.hashicorp.com
-dl_loc: /tmp
-bin_path: /usr/local/bin
+terraform_app: terraform
+terraform_version: 0.12.4
+terraform_osarch: linux_amd64
+terraform_dl_url: https://releases.hashicorp.com
+terraform_dl_loc: /tmp
+terraform_bin_path: /usr/local/bin
 ```
 
-Variable `app`: Defines the app to install i.e. **terraform**
+Variable `terraform_app`: Defines the app to install i.e. **terraform**
 
-Variable `version`: Defined to dynamically fetch the desired version to install. Defaults to: **0.12.4**
+Variable `terraform_version`: Defined to dynamically fetch the desired version to install. Defaults to: **0.12.4**
 
-Variable `osarch`: Defines os architecture. Used for obtaining the correct type of binaries based on OS System Architecture. Defaults to: **linux_amd64**
+Variable `terraform_osarch`: Defines os architecture. Used for obtaining the correct type of binaries based on OS System Architecture. Defaults to: **linux_amd64**
 
-Variable `dl_loc`: Defined to dynamically choose where to place the binary archive for `terraform` temporarily. Defaults to: **/tmp**
+Variable `terraform_dl_loc`: Defined to dynamically choose where to place the binary archive for `terraform` temporarily. Defaults to: **/tmp**
 
-Variable `dl_url`: Defines URL to download the terraform binary from.
+Variable `terraform_dl_url`: Defines URL to download the terraform binary from.
 
-Variable `bin_path`: Defined to dynamically choose the appropriate path to store terraform binary into. Defaults to (as generally on any user's PATH): **/usr/local/bin** 
+Variable `terraform_bin_path`: Defined to dynamically choose the appropriate path to store terraform binary into. Defaults to (as generally on any user's PATH): **/usr/local/bin** 
 
 Dependencies
 ------------
@@ -55,18 +55,18 @@ For customizing behavior of role (i.e. specifying the  desired **terraform** ver
   roles:
     - role: darkwizard242.unzip
       vars:
-        version: 0.12.4
+        terraform_version: 0.12.4
 ```
-             
+
 For customizing behavior of role (i.e. placing binary of **terraform** package in different location) in ansible playbooks.
 ```yaml
 - hosts: servers
   roles:
     - role: darkwizard242.unzip
       vars:
-        bin_path: /bin/
-```      
-         
+        terraform_bin_path: /bin/
+```
+
 License
 -------
 

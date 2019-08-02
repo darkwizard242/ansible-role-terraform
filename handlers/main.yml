@@ -1,11 +1,11 @@
 ---
 # handlers file for {{ app }}
 
-- name: "{{ app }}_unarchive"
+- name: "{{ terraform_app }}_unarchive"
   unarchive:
-    src: "{{ dl_loc }}/{{ app }}_{{ version }}_{{ osarch }}.zip"
-    dest: "{{ bin_path }}"
-- name: "{{ app }}_archive_removal"
+    src: "{{ terraform_dl_loc }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_osarch }}.zip"
+    dest: "{{ terraform_bin_path }}"
+- name: "{{ terraform_app }}_archive_removal"
   file:
-    path: "{{ dl_loc }}/{{ app }}_{{ version }}_{{ osarch }}.zip"
+    path: "{{ terraform_dl_loc }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_osarch }}.zip"
     state: absent
