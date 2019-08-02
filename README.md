@@ -1,4 +1,4 @@
-Ansible Role: unzip
+Ansible Role: Terraform
 =========
 
 Role to install (_by default_) `terraform` package  on **Ubuntu** systems.
