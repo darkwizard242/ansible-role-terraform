@@ -4,7 +4,7 @@
 - name: Downloading archive for {{ terraform_app }} {{ terraform_version }} temporarily to {{ terraform_dl_loc }}
   get_url:
     url: "{{ terraform_dl_url }}/{{ terraform_app }}/{{ terraform_version }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_osarch }}.zip"
-    dest: "{{ dl_loc }}"
+    dest: "{{ terraform_dl_loc }}"
   notify:
     - "{{ terraform_app }}_unarchive"
     - "{{ terraform_app }}_archive_removal"
