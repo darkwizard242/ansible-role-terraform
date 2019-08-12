@@ -1,7 +1,4 @@
 ---
-dependencies:
-  - darkwizard242.unzip
-
 galaxy_info:
   role_name: terraform
   author: Ali Muhammad
