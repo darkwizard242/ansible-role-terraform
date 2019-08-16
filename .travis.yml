@@ -1,0 +1,32 @@
+---
+sudo: required
+
+dist: bionic
+
+language: python
+python:
+  - "3.6"
+  - "3.7"
+
+services:
+  - docker
+
+env:
+  - ROLE_NAME: terraform
+
+before_install:
+  - sudo apt-get -qq update
+
+install:
+  - pip3 install molecule docker
+
+before_script:
+  # Rename project directory to actual Ansible Galaxy role name and switch to it.
+  - cd ../
+  - mv ansible-role-$ROLE_NAME darkwizard242.$ROLE_NAME
+  - cd darkwizard242.$ROLE_NAME
+
+script:
+  - molecule test
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/?branch=master
