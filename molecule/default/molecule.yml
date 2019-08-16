@@ -1,0 +1,41 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint:
+  name: yamllint
+platforms:
+  - name: CentOS-7
+    image: centos:7
+  - name: Ubuntu-16.04
+    image: ubuntu:16.04
+  - name: Ubuntu-18.04
+    image: ubuntu:18.04
+  - name: Debian-8
+    image: debian:jessie
+  - name: Debian-9
+    image: debian:stretch
+#  - name: Debian-10
+#    image: debian:buster
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+scenario:
+  name: default
+  test_sequence:
+    - lint
+    - destroy
+    - syntax
+    - create
+    - converge
+    - verify
+    - cleanup
+    - destroy
+verifier:
+  name: testinfra
+  options:
+    verbose: true
+  lint:
+    name: flake8

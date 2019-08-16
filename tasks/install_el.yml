@@ -1,32 +1,30 @@
 ---
 # tasks file for terraform
 
-- name: Downloading archive for {{ terraform_app }} {{ terraform_version }} temporarily to {{ terraform_dl_loc }}
+- name: Downloading archive for {{ terraform_app }} {{ terraform_version }} temporarily to {{ terraform_dl_loc }} on EL based systems
   get_url:
     url: "{{ terraform_dl_url }}/{{ terraform_app }}/{{ terraform_version }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_osarch }}.zip"
     dest: "{{ terraform_dl_loc }}"
-- name: Gather package facts to verify if unzip is installed
+- name: Gather package facts to verify if unzip is installed on EL based systems
   package_facts:
-    manager: auto
-- name: Temporarily install  unzip on Debian based systems if currently not in installed state.
-  apt:
+    manager: rpm
+- name: Temporarily install unzip on EL based systems if currently not in installed state on EL based systems.
+  yum:
     name: unzip
     state: present
-    force_apt_get: yes
     update_cache: yes
   when: packages['unzip'] is not defined
-- name: "{{ terraform_app }}_unarchive"
+- name: "{{ terraform_app }}_unarchive on EL based systems"
   unarchive:
     src: "{{ terraform_dl_loc }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_osarch }}.zip"
     dest: "{{ terraform_bin_path }}"
-- name: Uninstalling unzip from Debian based systems as it was originally not in installed state.
-  apt:
+    remote_src: true
+- name: Uninstalling unzip from Debian based systems as it was originally not in installed state on EL based systems.
+  yum:
     name: unzip
     state: absent
-    force_apt_get: yes
-    update_cache: no
   when: packages['unzip'] is not defined
-- name: "{{ terraform_app }}_archive_removal"
+- name: "{{ terraform_app }}_archive_removal on EL based systems"
   file:
     path: "{{ terraform_dl_loc }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_osarch }}.zip"
     state: absent
