@@ -16,8 +16,8 @@ platforms:
     image: debian:jessie
   - name: Debian-9
     image: debian:stretch
-#  - name: Debian-10
-#    image: debian:buster
+  - name: Debian-10
+    image: debian:buster
 provisioner:
   name: ansible
   lint:
