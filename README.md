@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/darkwizard242/ansible-role-terraform.svg?branch=master)](https://travis-ci.com/darkwizard242/ansible-role-terraform)
+
 Ansible Role: Terraform
 =========
 
