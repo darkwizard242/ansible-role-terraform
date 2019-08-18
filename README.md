@@ -1,4 +1,11 @@
 [![Build Status](https://travis-ci.com/darkwizard242/ansible-role-terraform.svg?branch=master)](https://travis-ci.com/darkwizard242/ansible-role-terraform)
+![Ansible Role](https://img.shields.io/ansible/role/42050?color=dark%20green)
+![Ansible Role](https://img.shields.io/ansible/role/d/42050)
+![Ansible Quality Score](https://img.shields.io/ansible/quality/42050?label=ansible%20role%20quality&style=flat-square)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ansible-role-terraform&metric=alert_status)](https://sonarcloud.io/dashboard?id=ansible-role-terraform)
+![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/darkwizard242/ansible-role-terraform?label=release&style=flat-square)
+![Ansible Role](https://img.shields.io/ansible/role/d/42050?color=orange&style=flat-square)
+
 
 Ansible Role: Terraform
 =========
