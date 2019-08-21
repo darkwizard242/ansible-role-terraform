@@ -45,7 +45,7 @@ Variable `terraform_bin_path`: Defined to dynamically choose the appropriate pat
 Dependencies
 ------------
 
-Ansible role: [darkwizard242.unzip](https://galaxy.ansible.com/darkwizard242/unzip)
+None
 
 Example Playbook
 ----------------
