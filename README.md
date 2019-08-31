@@ -61,7 +61,7 @@ For customizing behavior of role (i.e. specifying the  desired **terraform** ver
 ```yaml
 - hosts: servers
   roles:
-    - role: darkwizard242.unzip
+    - role: darkwizard242.terraform
       vars:
         terraform_version: 0.12.4
 ```
@@ -70,7 +70,7 @@ For customizing behavior of role (i.e. placing binary of **terraform** package i
 ```yaml
 - hosts: servers
   roles:
-    - role: darkwizard242.unzip
+    - role: darkwizard242.terraform
       vars:
         terraform_bin_path: /bin/
 ```
