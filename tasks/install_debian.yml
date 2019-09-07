@@ -5,12 +5,12 @@
   get_url:
     url: "{{ terraform_dl_url }}/{{ terraform_app }}/{{ terraform_version }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_osarch }}.zip"
     dest: "{{ terraform_dl_loc }}"
-- name: Install python-apt on Debian based systems, required for package_facts.
+- name: Install python3-apt on Debian based systems, required for package_facts.
   apt:
-    name: python-apt
+    name: python3-apt
     state: present
     force_apt_get: yes
-    update_cache: no
+    update_cache: yes
 - name: Gather package facts to verify if unzip is installed on Debian based systems
   package_facts:
     manager: apt
@@ -19,6 +19,7 @@
     name: unzip
     state: present
     force_apt_get: yes
+    update_cache: yes
   when: packages['unzip'] is not defined
 - name: "{{ terraform_app }}_unarchive on Debian based systems."
   unarchive:
@@ -30,7 +31,7 @@
     name: unzip
     state: absent
     force_apt_get: yes
-    update_cache: no
+    update_cache: yes
   when: packages['unzip'] is not defined
 - name: "{{ terraform_app }}_archive_removal on Debian based systems."
   file:
