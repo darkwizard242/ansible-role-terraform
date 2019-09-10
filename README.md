@@ -23,7 +23,7 @@ Available variables are listed below (located in  `defaults/main.yml`):
 
 ```yaml
 terraform_app: terraform
-terraform_version: 0.12.4
+terraform_version: 0.12.8
 terraform_osarch: linux_amd64
 terraform_dl_url: https://releases.hashicorp.com
 terraform_dl_loc: /tmp
@@ -32,7 +32,7 @@ terraform_bin_path: /usr/local/bin
 
 Variable `terraform_app`: Defines the app to install i.e. **terraform**
 
-Variable `terraform_version`: Defined to dynamically fetch the desired version to install. Defaults to: **0.12.4**
+Variable `terraform_version`: Defined to dynamically fetch the desired version to install. Defaults to: **0.12.8**
 
 Variable `terraform_osarch`: Defines os architecture. Used for obtaining the correct type of binaries based on OS System Architecture. Defaults to: **linux_amd64**
 
@@ -63,7 +63,7 @@ For customizing behavior of role (i.e. specifying the  desired **terraform** ver
   roles:
     - role: darkwizard242.terraform
       vars:
-        terraform_version: 0.12.4
+        terraform_version: 0.12.8
 ```
 
 For customizing behavior of role (i.e. placing binary of **terraform** package in different location) in ansible playbooks.
