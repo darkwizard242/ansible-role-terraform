@@ -5,16 +5,16 @@
   get_url:
     url: "{{ terraform_dl_url }}/{{ terraform_app }}/{{ terraform_version }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_osarch }}.zip"
     dest: "{{ terraform_dl_loc }}"
-- name: Gather package facts to verify if unzip is installed on EL based systems
-  package_facts:
-    manager: rpm
-- name: Temporarily install unzip on EL based systems if currently not in installed state on EL based systems.
+# - name: Gather package facts to verify if unzip is installed on EL based systems
+#   package_facts:
+#     manager: rpm
+- name: Install unzip if it is currently not in an installed state on EL based systems.
   yum:
     name: unzip
     state: present
     update_cache: yes
-  when: packages['unzip'] is not defined
-- name: "{{ terraform_app }}_unarchive on EL based systems"
+  # when: packages['unzip'] is not defined
+- name: "Extract {{ terraform_app }} archive on EL based systems"
   unarchive:
     src: "{{ terraform_dl_loc }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_osarch }}.zip"
     dest: "{{ terraform_bin_path }}"
