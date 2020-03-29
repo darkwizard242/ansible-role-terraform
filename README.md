@@ -2,7 +2,7 @@
 
 # Ansible Role: Terraform
 
-Role to install (_by default_) `terraform` package on **Debian/Ubuntu** and **EL** systems.
+Role to install (_by default_) [terraform](https://www.terraform.io/) package on **Debian/Ubuntu** and **EL** systems.
 
 ## Requirements
 
@@ -45,7 +45,7 @@ For default behaviour of role (i.e. installation of **terraform**) in ansible pl
 ```yaml
 - hosts: servers
   roles:
-    - role: darkwizard242.terraform
+    - darkwizard242.terraform
 ```
 
 For customizing behavior of role (i.e. specifying the desired **terraform** version) in ansible playbooks.
@@ -53,9 +53,9 @@ For customizing behavior of role (i.e. specifying the desired **terraform** vers
 ```yaml
 - hosts: servers
   roles:
-    - role: darkwizard242.terraform
-      vars:
-        terraform_version: 0.12.22
+    - darkwizard242.terraform
+  vars:
+    terraform_version: 0.12.22
 ```
 
 For customizing behavior of role (i.e. placing binary of **terraform** package in different location) in ansible playbooks.
@@ -63,9 +63,9 @@ For customizing behavior of role (i.e. placing binary of **terraform** package i
 ```yaml
 - hosts: servers
   roles:
-    - role: darkwizard242.terraform
-      vars:
-        terraform_bin_path: /bin/
+    - darkwizard242.terraform
+  vars:
+    terraform_bin_path: /bin/
 ```
 
 ## License
