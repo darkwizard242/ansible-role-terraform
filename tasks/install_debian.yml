@@ -5,35 +5,35 @@
   get_url:
     url: "{{ terraform_dl_url }}/{{ terraform_app }}/{{ terraform_version }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_osarch }}.zip"
     dest: "{{ terraform_dl_loc }}"
-- name: Install python3-apt on Debian based systems, required for package_facts.
-  apt:
-    name: python3-apt
-    state: present
-    force_apt_get: yes
-    update_cache: yes
-- name: Gather package facts to verify if unzip is installed on Debian based systems
-  package_facts:
-    manager: apt
-- name: Temporarily install unzip currently not in installed state on Debian based systems.
+# - name: Install python3-apt on Debian based systems, required for package_facts.
+#   apt:
+#     name: python3-apt
+#     state: present
+#     force_apt_get: yes
+#     update_cache: yes
+# - name: Gather package facts to verify if unzip is installed on Debian based systems
+#   package_facts:
+#     manager: apt
+- name: Install unzip if it is currently not in an installed state on Debian based systems.
   apt:
     name: unzip
     state: present
     force_apt_get: yes
     update_cache: yes
-  when: packages['unzip'] is not defined
-- name: "{{ terraform_app }}_unarchive on Debian based systems."
+  # when: packages['unzip'] is not defined
+- name: "Extract {{ terraform_app }} archive on Debian based systems."
   unarchive:
     src: "{{ terraform_dl_loc }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_osarch }}.zip"
     dest: "{{ terraform_bin_path }}"
     remote_src: true
-- name: Uninstalling unzip as it was originally not in installed state on Debian based systems.
-  apt:
-    name: unzip
-    state: absent
-    force_apt_get: yes
-    update_cache: yes
-  when: packages['unzip'] is not defined
-- name: "{{ terraform_app }}_archive_removal on Debian based systems."
+# - name: Uninstalling unzip as it was originally not in installed state on Debian based systems.
+#   apt:
+#     name: unzip
+#     state: absent
+#     force_apt_get: yes
+#     update_cache: yes
+#   when: packages['unzip'] is not defined
+- name: "Remove {{ terraform_app }} archive from Debian based systems."
   file:
     path: "{{ terraform_dl_loc }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_osarch }}.zip"
     state: absent
