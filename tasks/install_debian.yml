@@ -1,31 +1,36 @@
 ---
-# tasks file for terraform
+# tasks file for terraform | Debian/Ubuntu Family
 
-- name: Downloading archive for {{ terraform_app }} {{ terraform_version }} temporarily to {{ terraform_dl_loc }} on Debian based systems
+- name: Debian/Ubuntu Family | Downloading archive for {{ terraform_app }} {{ terraform_version }} temporarily to {{ terraform_dl_loc }}
   get_url:
     url: "{{ terraform_dl_url }}/{{ terraform_app }}/{{ terraform_version }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_osarch }}.zip"
     dest: "{{ terraform_dl_loc }}"
+
 # - name: Install python3-apt on Debian based systems, required for package_facts.
 #   apt:
 #     name: python3-apt
 #     state: present
 #     force_apt_get: yes
 #     update_cache: yes
+
 # - name: Gather package facts to verify if unzip is installed on Debian based systems
 #   package_facts:
 #     manager: apt
-- name: Install unzip if it is currently not in an installed state on Debian based systems.
+
+- name: Debian/Ubuntu Family | Install unzip if it is currently not in an installed state
   apt:
     name: unzip
     state: present
     force_apt_get: yes
     update_cache: yes
   # when: packages['unzip'] is not defined
-- name: "Extract {{ terraform_app }} archive on Debian based systems."
+
+- name: Debian/Ubuntu Family | Extract {{ terraform_app }} archive
   unarchive:
     src: "{{ terraform_dl_loc }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_osarch }}.zip"
     dest: "{{ terraform_bin_path }}"
     remote_src: true
+
 # - name: Uninstalling unzip as it was originally not in installed state on Debian based systems.
 #   apt:
 #     name: unzip
@@ -33,7 +38,8 @@
 #     force_apt_get: yes
 #     update_cache: yes
 #   when: packages['unzip'] is not defined
-- name: "Remove {{ terraform_app }} archive from Debian based systems."
+
+- name: Debian/Ubuntu Family | Remove {{ terraform_app }} archive
   file:
     path: "{{ terraform_dl_loc }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_osarch }}.zip"
     state: absent
