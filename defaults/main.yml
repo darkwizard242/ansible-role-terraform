@@ -2,7 +2,7 @@
 # defaults file for terraform
 
 terraform_app: terraform
-terraform_version: 0.12.28
+terraform_version: 0.12.29
 terraform_osarch: linux_amd64
 terraform_dl_url: https://releases.hashicorp.com
 terraform_dl_loc: /tmp
