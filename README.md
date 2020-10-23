@@ -16,7 +16,7 @@ Available variables are listed below (located in `defaults/main.yml`):
 
 ```yaml
 terraform_app: terraform
-terraform_version: 0.13.4
+terraform_version: 0.13.5
 terraform_osarch: linux_amd64
 terraform_dl_url: https://releases.hashicorp.com
 terraform_dl_loc: /tmp
@@ -28,7 +28,7 @@ terraform_bin_path: /usr/local/bin
 Variable           | Value (default)                  | Description
 ------------------ | -------------------------------- | -----------------------------------------------------------------------------------------------------------------------------------------------------------
 terraform_app      | terraform                        | Defines the app to install i.e. **terraform**
-terraform_version  | 0.13.4                           | Defined to dynamically fetch the desired version to install. Defaults to: **0.13.4**
+terraform_version  | 0.13.5                           | Defined to dynamically fetch the desired version to install. Defaults to: **0.13.5**
 terraform_osarch   | linux_amd64                      | Defines os architecture. Used for obtaining the correct type of binaries based on OS System Architecture. Defaults to: **linux_amd64**
 terraform_dl_url   | <https://releases.hashicorp.com> | Defines URL to download the terraform binary from.
 terraform_dl_loc   | /tmp                             | Defined to dynamically set where to place the binary archive for `terraform` temporarily. Defaults to: **/tmp**
