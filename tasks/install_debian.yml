@@ -23,7 +23,7 @@
     state: present
     force_apt_get: yes
     update_cache: yes
-  # when: packages['unzip'] is not defined
+    # when: packages['unzip'] is not defined
 
 - name: Debian/Ubuntu Family | Extract {{ terraform_app }} archive
   unarchive:
