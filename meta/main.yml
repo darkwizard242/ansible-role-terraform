@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   role_name: terraform
-  author: Ali Muhammad
+  author: darkwizard242
   description: Role for installing 'terraform' for performing Infrastructure as Code (IaC).
   company: none
   license: MIT
