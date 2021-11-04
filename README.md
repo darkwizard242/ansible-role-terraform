@@ -16,7 +16,7 @@ Available variables are listed below (located in `defaults/main.yml`):
 
 ```yaml
 terraform_app: terraform
-terraform_version: 1.0.9
+terraform_version: 1.0.10
 terraform_osarch: linux_amd64
 terraform_dl_url: https://releases.hashicorp.com
 terraform_dl_loc: /tmp
