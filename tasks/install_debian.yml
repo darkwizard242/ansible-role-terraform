@@ -3,43 +3,26 @@
 
 - name: Debian/Ubuntu Family | Downloading archive for {{ terraform_app }} {{ terraform_version }} temporarily to {{ terraform_dl_loc }}
   get_url:
-    url: "{{ terraform_dl_url }}/{{ terraform_app }}/{{ terraform_version }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_osarch }}.zip"
+    url: "{{ terraform_dl_url }}/{{ terraform_app }}/{{ terraform_version }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_os }}_{{ terraform_arch }}.zip"
     dest: "{{ terraform_dl_loc }}"
 
-# - name: Install python3-apt on Debian based systems, required for package_facts.
-#   apt:
-#     name: python3-apt
-#     state: present
-#     force_apt_get: yes
-#     update_cache: yes
-
-# - name: Gather package facts to verify if unzip is installed on Debian based systems
-#   package_facts:
-#     manager: apt
-
-- name: Debian/Ubuntu Family | Install unzip if it is currently not in an installed state
+- name: Debian/Ubuntu Family | Install unzip if it is currently not in installed state
   apt:
     name: unzip
     state: present
     force_apt_get: yes
     update_cache: yes
-    # when: packages['unzip'] is not defined
 
-- name: Debian/Ubuntu Family | Extract {{ terraform_app }} archive
+- name: Debian/Ubuntu Family | Unarchive {{ terraform_app }} {{ terraform_version }}
   unarchive:
-    src: "{{ terraform_dl_loc }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_osarch }}.zip"
+    src: "{{ terraform_dl_loc }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_os }}_{{ terraform_arch }}.zip"
     dest: "{{ terraform_bin_path }}"
+    owner: "{{ terraform_file_owner }}"
+    group: "{{ terraform_file_group }}"
+    mode: "{{ terraform_file_mode }}"
     remote_src: true
 
-# - name: Uninstalling unzip as it was originally not in installed state on Debian based systems.
-#   apt:
-#     name: unzip
-#     state: absent
-#     force_apt_get: yes
-#     update_cache: yes
-#   when: packages['unzip'] is not defined
-
-- name: Debian/Ubuntu Family | Remove {{ terraform_app }} archive
+- name: Debian/Ubuntu Family | Remove {{ terraform_app }} archive file
   file:
-    path: "{{ terraform_dl_loc }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_osarch }}.zip"
+    path: "{{ terraform_dl_loc }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_os }}_{{ terraform_arch }}.zip"
     state: absent
