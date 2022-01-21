@@ -16,23 +16,31 @@ Available variables are listed below (located in `defaults/main.yml`):
 
 ```yaml
 terraform_app: terraform
-terraform_version: 1.1.3
-terraform_osarch: linux_amd64
+terraform_version: 1.1.4
+terraform_os: linux
+terraform_arch: amd64
 terraform_dl_url: https://releases.hashicorp.com
 terraform_dl_loc: /tmp
 terraform_bin_path: /usr/local/bin
+terraform_file_owner: root
+terraform_file_group: root
+terraform_file_mode: '0755'
 ```
 
 ### Variables table:
 
-Variable           | Value (default)                  | Description
------------------- | -------------------------------- | -----------------------------------------------------------------------------------------------------------------------------------------------------------
-terraform_app      | terraform                        | Defines the app to install i.e. **terraform**
-terraform_version  | 1.1.3                            | Defined to dynamically fetch the desired version to install. Defaults to: **1.1.3**
-terraform_osarch   | linux_amd64                      | Defines os architecture. Used for obtaining the correct type of binaries based on OS System Architecture. Defaults to: **linux_amd64**
-terraform_dl_url   | <https://releases.hashicorp.com> | Defines URL to download the terraform binary from.
-terraform_dl_loc   | /tmp                             | Defined to dynamically set where to place the binary archive for `terraform` temporarily. Defaults to: **/tmp**
-terraform_bin_path | /usr/local/bin                   | Defined to dynamically set the appropriate path to store terraform binary into. Defaults to (as generally available on any user's PATH): **/usr/local/bin**
+Variable             | Description
+-------------------- | -----------------------------------------------------------------------------------------------------------------------------------------------------------
+terraform_app        | Defines the app to install i.e. **terraform**
+terraform_version    | Defined to dynamically fetch the desired version to install. Defaults to: **1.1.4**
+terraform_os         | Defines os type. Used for obtaining the correct type of binaries based on OS type. Defaults to: **linux**
+terraform_arch       | Defines os architecture. Used to set the correct type of binaries based on OS System Architecture. Defaults to: **amd64**
+terraform_dl_url     | Defines URL to download the terraform binary from.
+terraform_dl_loc     | Defined to dynamically set where to place the binary archive for `terraform` temporarily. Defaults to: **/tmp**
+terraform_bin_path   | Defined to dynamically set the appropriate path to store terraform binary into. Defaults to (as generally available on any user's PATH): **/usr/local/bin**
+terraform_file_owner | Owner for the binary file of terraform.
+terraform_file_group | Group for the binary file of terraform.
+terraform_file_mode  | Mode for the binary file of terraform.
 
 ## Dependencies
 
