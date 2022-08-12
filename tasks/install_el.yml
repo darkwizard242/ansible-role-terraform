@@ -2,19 +2,19 @@
 # tasks file for terraform | EL Family
 
 - name: EL Family | Downloading archive for {{ terraform_app }} {{ terraform_version }} temporarily to {{ terraform_dl_loc }}
-  get_url:
+  ansible.builtin.get_url:
     url: "{{ terraform_dl_url }}/{{ terraform_app }}/{{ terraform_version }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_os }}_{{ terraform_arch }}.zip"
     dest: "{{ terraform_dl_loc }}"
 
 
 - name: EL Family | Install unzip if it is currently not in installed state
-  yum:
+  ansible.builtin.yum:
     name: unzip
     state: present
     update_cache: yes
 
 - name: EL Family | Unarchive {{ terraform_app }} {{ terraform_version }}
-  unarchive:
+  ansible.builtin.unarchive:
     src: "{{ terraform_dl_loc }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_os }}_{{ terraform_arch }}.zip"
     dest: "{{ terraform_bin_path }}"
     owner: "{{ terraform_file_owner }}"
@@ -23,6 +23,6 @@
     remote_src: true
 
 - name: EL Family | Remove {{ terraform_app }} archive
-  file:
+  ansible.builtin.file:
     path: "{{ terraform_dl_loc }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_os }}_{{ terraform_arch }}.zip"
     state: absent
