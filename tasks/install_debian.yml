@@ -5,7 +5,6 @@
   ansible.builtin.apt:
     name: unzip
     state: present
-    update_cache: yes
 
 - name: Debian/Ubuntu Family | Unarchive {{ terraform_app }} {{ terraform_version }}
   ansible.builtin.unarchive:
