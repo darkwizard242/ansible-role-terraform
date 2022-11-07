@@ -1,11 +1,6 @@
 ---
 # tasks file for terraform | Debian/Ubuntu Family
 
-- name: Debian/Ubuntu Family | Downloading archive for {{ terraform_app }} {{ terraform_version }} temporarily to {{ terraform_dl_loc }}
-  ansible.builtin.get_url:
-    url: "{{ terraform_dl_url }}/{{ terraform_app }}/{{ terraform_version }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_os }}_{{ terraform_arch }}.zip"
-    dest: "{{ terraform_dl_loc }}"
-
 - name: Debian/Ubuntu Family | Install unzip if it is currently not in installed state
   ansible.builtin.apt:
     name: unzip
@@ -15,7 +10,7 @@
 
 - name: Debian/Ubuntu Family | Unarchive {{ terraform_app }} {{ terraform_version }}
   ansible.builtin.unarchive:
-    src: "{{ terraform_dl_loc }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_os }}_{{ terraform_arch }}.zip"
+    src:  "{{ terraform_dl_url }}/{{ terraform_app }}/{{ terraform_version }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_os }}_{{ terraform_arch }}.zip"
     dest: "{{ terraform_bin_path }}"
     owner: "{{ terraform_file_owner }}"
     group: "{{ terraform_file_group }}"
