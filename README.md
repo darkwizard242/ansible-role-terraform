@@ -16,7 +16,7 @@ Available variables are listed below (located in `defaults/main.yml`):
 
 ```yaml
 terraform_app: terraform
-terraform_version: 1.5.5
+terraform_version: 1.5.6
 terraform_os: linux
 terraform_arch: amd64
 terraform_dl_url: https://releases.hashicorp.com
@@ -32,7 +32,7 @@ terraform_file_mode: '0755'
 Variable             | Description
 -------------------- | -----------------------------------------------------------------------------------------------------------------------------------------------------------
 terraform_app        | Defines the app to install i.e. **terraform**
-terraform_version    | Defined to dynamically fetch the desired version to install. Defaults to: **1.5.5**
+terraform_version    | Defined to dynamically fetch the desired version to install. Defaults to: **1.5.6**
 terraform_os         | Defines os type. Used for obtaining the correct type of binaries based on OS type. Defaults to: **linux**
 terraform_arch       | Defines os architecture. Used to set the correct type of binaries based on OS System Architecture. Defaults to: **amd64**
 terraform_dl_url     | Defines URL to download the terraform binary from.
