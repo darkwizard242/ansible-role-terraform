@@ -1,4 +1,4 @@
-[![build-test](https://github.com/darkwizard242/ansible-role-terraform/workflows/build-and-test/badge.svg?branch=master)](https://github.com/darkwizard242/ansible-role-terraform/actions?query=workflow%3Abuild-and-test) [![release](https://github.com/darkwizard242/ansible-role-terraform/workflows/release/badge.svg)](https://github.com/darkwizard242/ansible-role-terraform/actions?query=workflow%3Arelease) ![Ansible Role](https://img.shields.io/ansible/role/42050?color=dark%20green%20) ![Ansible Role](https://img.shields.io/ansible/role/d/42050?label=role%20downloads) ![Ansible Quality Score](https://img.shields.io/ansible/quality/42050?label=ansible%20quality%20score) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ansible-role-terraform&metric=alert_status)](https://sonarcloud.io/dashboard?id=ansible-role-terraform) [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=ansible-role-terraform&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=ansible-role-terraform) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=ansible-role-terraform&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=ansible-role-terraform) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=ansible-role-terraform&metric=security_rating)](https://sonarcloud.io/dashboard?id=ansible-role-terraform) ![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/darkwizard242/ansible-role-terraform?label=release) ![GitHub repo size](https://img.shields.io/github/repo-size/darkwizard242/ansible-role-terraform?color=orange&style=flat-square)
+[![build-test](https://github.com/darkwizard242/ansible-role-terraform/workflows/build-and-test/badge.svg?branch=master)](https://github.com/darkwizard242/ansible-role-terraform/actions?query=workflow%3Abuild-and-test) [![release](https://github.com/darkwizard242/ansible-role-terraform/workflows/release/badge.svg)](https://github.com/darkwizard242/ansible-role-terraform/actions?query=workflow%3Arelease) ![Ansible Role](https://img.shields.io/ansible/role/d/darkwizard242/terraform) [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=ansible-role-terraform&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=ansible-role-terraform) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=ansible-role-terraform&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=ansible-role-terraform) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=ansible-role-terraform&metric=security_rating)](https://sonarcloud.io/dashboard?id=ansible-role-terraform) ![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/darkwizard242/ansible-role-terraform?label=release) ![GitHub repo size](https://img.shields.io/github/repo-size/darkwizard242/ansible-role-terraform?color=orange&style=flat-square)
 
 # Ansible Role: Terraform
 
@@ -16,7 +16,7 @@ Available variables are listed below (located in `defaults/main.yml`):
 
 ```yaml
 terraform_app: terraform
-terraform_version: 1.8.0
+terraform_version: 1.8.1
 terraform_os: linux
 terraform_arch: amd64
 terraform_dl_url: https://releases.hashicorp.com
@@ -32,7 +32,7 @@ terraform_file_mode: '0755'
 Variable             | Description
 -------------------- | -----------------------------------------------------------------------------------------------------------------------------------------------------------
 terraform_app        | Defines the app to install i.e. **terraform**
-terraform_version    | Defined to dynamically fetch the desired version to install. Defaults to: **1.8.0**
+terraform_version    | Defined to dynamically fetch the desired version to install. Defaults to: **1.8.1**
 terraform_os         | Defines os type. Used for obtaining the correct type of binaries based on OS type. Defaults to: **linux**
 terraform_arch       | Defines os architecture. Used to set the correct type of binaries based on OS System Architecture. Defaults to: **amd64**
 terraform_dl_url     | Defines URL to download the terraform binary from.
