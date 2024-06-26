@@ -3,7 +3,7 @@
 
 - name: EL Family | Downloading archive for {{ terraform_app }} {{ terraform_version }} temporarily to {{ terraform_dl_loc }}
   ansible.builtin.get_url:
-    url: "{{ terraform_dl_url }}/{{ terraform_app }}/{{ terraform_version }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_os }}_{{ terraform_arch }}.zip"
+    url: "{{ terraform_dl_url }}/{{ terraform_app }}/{{ terraform_version }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_os }}_{{ terraform_architecture_map[ansible_architecture] }}.zip"
     dest: "{{ terraform_dl_loc }}"
 
 
@@ -15,7 +15,7 @@
 
 - name: EL Family | Unarchive {{ terraform_app }} {{ terraform_version }}
   ansible.builtin.unarchive:
-    src: "{{ terraform_dl_loc }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_os }}_{{ terraform_arch }}.zip"
+    src: "{{ terraform_dl_loc }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_os }}_{{ terraform_architecture_map[ansible_architecture] }}.zip"
     dest: "{{ terraform_bin_path }}"
     owner: "{{ terraform_file_owner }}"
     group: "{{ terraform_file_group }}"
@@ -24,5 +24,5 @@
 
 - name: EL Family | Remove {{ terraform_app }} archive
   ansible.builtin.file:
-    path: "{{ terraform_dl_loc }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_os }}_{{ terraform_arch }}.zip"
+    path: "{{ terraform_dl_loc }}/{{ terraform_app }}_{{ terraform_version }}_{{ terraform_os }}_{{ terraform_architecture_map[ansible_architecture] }}.zip"
     state: absent
