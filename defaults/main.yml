@@ -2,7 +2,7 @@
 # defaults file for terraform
 
 terraform_app: terraform
-terraform_version: 1.14.4
+terraform_version: 1.14.5
 terraform_os: "{{ ansible_system | lower }}"
 terraform_architecture_map:
   amd64: amd64
